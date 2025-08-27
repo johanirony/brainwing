@@ -5,6 +5,7 @@ import { MOUSE } from 'three'
 import * as THREE from 'three'
 import { Model } from './Brainwing'
 import Navbar from './Navbar'
+import Loader from './Loader'
 
 export default function Scene3D({ onSelectPoi, selectedPoi }) {
   const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false })
@@ -75,7 +76,7 @@ export default function Scene3D({ onSelectPoi, selectedPoi }) {
            shadow-camera-bottom={-1000}
          />
 
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader/>}>
           <Environment files="/models/environment.exr" background backgroundIntensity={2} />
           <Model />
           {pois.map((p) => (
