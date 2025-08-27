@@ -1,22 +1,41 @@
 // Loader.jsx
 import { Html, useProgress } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
+import { useRef } from 'react'
 
 export default function Loader() {
   const { progress } = useProgress()
+  const ringRef = useRef()
+
+  // Rotate the ring
+  useFrame(() => {
+    if (ringRef.current) {
+      ringRef.current.rotation.x += 0.02
+      ringRef.current.rotation.y += 0.02
+    }
+  })
+
   return (
-    <Html center>
-      <div style={{
-        background: 'rgba(0,0,0,0.7)',
-        padding: '20px 40px',
-        borderRadius: '12px',
-        color: 'white',
-        fontSize: '18px',
-        fontFamily: 'sans-serif',
-        textAlign: 'center',
-        boxShadow: '0 4px 20px rgba(0,0,0,0.3)'
-      }}>
-        🚀 Loading {progress.toFixed(0)}%
-      </div>
-    </Html>
+    <>
+      {/* 3D Ring */}
+      <mesh ref={ringRef}>
+        <torusGeometry args={[1, 0.3, 16, 100]} />
+        <meshStandardMaterial color="#00d4ff" metalness={0.6} roughness={0.2} />
+      </mesh>
+
+      {/* Progress Text overlay */}
+      <Html center>
+        <div style={{
+          color: 'white',
+          fontSize: '20px',
+          fontWeight: 'bold',
+          fontFamily: 'sans-serif',
+          marginTop: '80px',
+          textShadow: '0px 0px 10px rgba(0,0,0,0.8)'
+        }}>
+          {progress.toFixed(0)}%
+        </div>
+      </Html>
+    </>
   )
 }
