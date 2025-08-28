@@ -52,7 +52,7 @@ export default function Scene3D({ onSelectPoi, selectedPoi }) {
     >
              <Canvas 
          shadows 
-         camera={{ position: [0, 500, 1000], fov: 35, near: 1, far: 50000 }}
+         camera={{ position: [-1000, 500, 1000], fov: 35, near: 1, far: 50000 }}
          gl={{ 
            antialias: true, 
            powerPreference: "high-performance",
