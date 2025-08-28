@@ -5,7 +5,6 @@ import { MOUSE } from 'three'
 import * as THREE from 'three'
 import { Model } from './Brainwing'
 import Navbar from './Navbar'
-import Loader from './Loader'
 
 export default function Scene3D({ onSelectPoi, selectedPoi }) {
   const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false })
@@ -13,10 +12,10 @@ export default function Scene3D({ onSelectPoi, selectedPoi }) {
     {
       id: 'poi-1',
       position: [0, 50, 0],
-      title: 'Lodha Altamount',
+      title: 'Runwal Malabar',
       eta: 1,
-      description: 'Lodha Altamount is a postmodern luxury residential skyscraper located in the billionaires row of Mumbai, India',
-      image: '/lodha.png',
+      description: 'Runwal The Residence in Malabar Hill, Mumbai is a ready-to-move housing society. It offers apartments in varied budget range',
+      image: '/runwal.jpg',
     },{
       id: 'poi-2',
       position: [600, 10, -2100],
@@ -76,7 +75,7 @@ export default function Scene3D({ onSelectPoi, selectedPoi }) {
            shadow-camera-bottom={-1000}
          />
 
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={null}>
           <Environment files="/models/environment.exr" background backgroundIntensity={2} />
           <Model />
           {pois.map((p) => (

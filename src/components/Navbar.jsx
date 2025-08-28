@@ -9,14 +9,14 @@ export default function Navbar() {
       right: 0,
       height: '70px',
       background: 'rgba(248, 246, 243, 0)',
-    //   borderBottom: '1px solid rgba(230, 223, 216, 0.3)',
+      borderBottom: '1px solid rgba(230, 223, 216, 0.3)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
       padding: '0 24px',
       zIndex: 1000,
       fontFamily: 'system-ui, -apple-system, sans-serif',
-    //   backdropFilter: 'blur(8px)'
+      backdropFilter: 'blur(8px)'
     }}>
       {/* Left Section - Menu and Action Buttons */}
       {/* <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
